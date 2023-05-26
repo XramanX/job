@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setSelectedUser } from "../../../actions/accountAction";
 
 const LoginComp = () => {
   const [users, setUsers] = useState([]);
   const [selectedAccount, setSelectedAccount] = useState(null);
+
   const history = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleUserSelect = (user) => {
+    setSelectedUser(user);
+    dispatch(setSelectedUser(user));
+  };
+
   const handleAccountSelection = (accountId) => {
     setSelectedAccount(accountId);
     history(`/dashboard/${accountId}`);
@@ -34,11 +44,17 @@ const LoginComp = () => {
   return (
     <div className="login-container">
       <div className="login-heading">
-        <text>Select an Account</text>
+        <span>Select an Account</span>
       </div>
       <ul className="login-list">
         {users.map((user) => (
-          <li key={user.id} onClick={() => handleAccountSelection(user.id)}>
+          <li
+            key={user.id}
+            onClick={() => {
+              handleAccountSelection(user.id);
+              handleUserSelect(user);
+            }}
+          >
             <div className="profile-image">
               <img src={user.profilepicture} alt="Profile" />
             </div>

@@ -6,7 +6,7 @@ function Gallery({ selected }) {
   const name = "John Doe";
   return (
     <>
-      <div className="right-top-content">
+      <div className="right-content-coming-soon">
         <RightTopComponent title={selected} name={name} />
       </div>
     </>

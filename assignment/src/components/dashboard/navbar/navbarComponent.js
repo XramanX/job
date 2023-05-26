@@ -3,9 +3,6 @@ import React, { useEffect } from "react";
 function NavbarComponent({ onSelect, selectedItem }) {
   const navElement = ["Profile", "Posts", "Gallery", "ToDo"];
   const lastElement = navElement.length - 1;
-  useEffect(() => {
-    console.log(selectedItem);
-  }, [selectedItem]);
   return (
     <div className="left-nav-bar">
       <ul>
