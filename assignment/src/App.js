@@ -1,17 +1,18 @@
-import "./App.css";
-import NavbarComponent from "./components/NavBar/navbarComponent";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import RightContent from "./components/RightContent/RightContent";
+import SignIn from "./components/signin/SignIn";
+import "./index.css";
+import Dashboard from "./components/dashboard/Dashboard";
 
 function App() {
-  const [selectedItem, setSelectedItem] = useState("Profile");
-  const handleSelect = (item) => {
-    setSelectedItem(item);
-  };
   return (
     <div className="app">
-      <NavbarComponent onSelect={handleSelect} selectedItem={selectedItem} />
-      <RightContent selected={selectedItem} />
+      <Router>
+        <Routes>
+          <Route path="/" exact Component={SignIn} />
+          <Route path="/dashboard/:accountId" Component={Dashboard} />
+        </Routes>
+      </Router>
     </div>
   );
 }
