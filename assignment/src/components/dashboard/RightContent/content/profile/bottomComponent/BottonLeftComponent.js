@@ -23,9 +23,24 @@ function BottonLeftComponent() {
           <div className="title">Phone</div>
           <span className="title-span">{selectedUser.phone}</span>
         </div>
-        <div className="info-div">
+        <div className="info-div website-div">
           <div className="title">Website</div>
           <span className="title-span">{selectedUser.website}</span>
+        </div>
+      </div>
+      <div className="company-details">
+        <div className="section-heading">Company</div>
+        <div className="info-div">
+          <div className="title">Name</div>
+          <span className="title-span">{selectedUser.company.name}</span>
+        </div>
+        <div className="info-div">
+          <div className="title">catchPhrase</div>
+          <span className="title-span">{selectedUser.company.catchPhrase}</span>
+        </div>
+        <div className="info-div">
+          <div className="title">bs</div>
+          <span className="title-span">{selectedUser.company.bs}</span>
         </div>
       </div>
     </div>
