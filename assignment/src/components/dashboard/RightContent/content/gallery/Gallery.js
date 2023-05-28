@@ -7,9 +7,7 @@ function Gallery({ selected }) {
   return (
     <>
       <div className="right-content-coming-soon">
-        <div className="right-top-content">
-          <RightTopComponent title={selected} />
-        </div>
+        <RightTopComponent title={selected} />
         <ComingSoon />
       </div>
     </>

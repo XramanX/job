@@ -5,10 +5,8 @@ import BottomRightComponent from "./bottomComponent/BottomRightComponent";
 
 function Profile({ selected }) {
   return (
-    <div className={"right-content"}>
-      <div className="right-top-content">
-        <RightTopComponent title={selected} />
-      </div>
+    <div className="right-content">
+      <RightTopComponent title={selected} />
       <div className="right-bottom-content">
         <BottonLeftComponent />
         <BottomRightComponent />

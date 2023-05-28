@@ -1,22 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setSelectedUser } from "../../../actions/accountAction";
+import { setSelectedUser, setUsers } from "../../../actions/accountAction";
 
 const LoginComp = () => {
-  const [users, setUsers] = useState([]);
-  const [selectedAccount, setSelectedAccount] = useState(null);
+  const [users, setUsersList] = useState([]);
 
   const history = useNavigate();
   const dispatch = useDispatch();
 
   const handleUserSelect = (user) => {
-    setSelectedUser(user);
     dispatch(setSelectedUser(user));
   };
 
   const handleAccountSelection = (accountId) => {
-    setSelectedAccount(accountId);
     history(`/dashboard/${accountId}`);
   };
   // fetching users from api
@@ -31,7 +28,8 @@ const LoginComp = () => {
 
       if (response.ok) {
         const data = await response.json();
-        setUsers(data.users);
+        setUsersList(data.users);
+        dispatch(setUsers(data.users));
       } else {
         console.error("Failed to fetch users");
       }

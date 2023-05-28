@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-
+import React from "react";
+import RightArrow from "../../../assets/icons/rightArrow.svg";
 function NavbarComponent({ onSelect, selectedItem }) {
   const navElement = ["Profile", "Posts", "Gallery", "ToDo"];
   const lastElement = navElement.length - 1;
@@ -9,12 +9,17 @@ function NavbarComponent({ onSelect, selectedItem }) {
         {navElement.map((element, index) => (
           <li
             className={`item ${index === lastElement ? "" : "li-underline"} ${
-              selectedItem === element ? "selected" : ""
+              selectedItem === element ? "selected circle" : ""
             } `}
             key={index}
             onClick={() => onSelect(`${element}`)}
           >
             <span>{element}</span>
+            {selectedItem === element ? (
+              <img className="right-arrow" src={RightArrow} alt="rightarrow" />
+            ) : (
+              ""
+            )}
           </li>
         ))}
       </ul>
